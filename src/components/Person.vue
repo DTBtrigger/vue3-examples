@@ -5,21 +5,25 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-let name = ref('张三') //此时的数据不是响应式的
-let age = ref(18)
-let tel = '18888888'
+import { reactive, toRefs } from 'vue'
+let person = reactive({
+  name: '张三',
+  age: 18,
+  tel: '188888888888'
+})
+
+let { name, age, tel } = toRefs(person)
 
 function changeName() {
-  name.value = 'zhangsan'
+  person.name = 'zhangsan'
 }
 
 function changeAge() {
-  age.value = age.value + 1
+  person.age = person.age + 1
 }
 
 function showTel() {
-  alert(tel)
+  alert(person.tel)
 }
 </script>
 

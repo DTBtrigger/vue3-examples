@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        background-color: #fbf5e2;
+      }
+      /* 圆心位置 */
+      .carousel {
+        position: absolute;
+        top: 17%;
+        left: 10%;
+        width: 250px;
+        height: 250px;
+        /* border: 2px dashed #ccc; */
+      }
+      .card {
+        position: absolute;
+        width: 150px;
+        height: 120px;
+        /* background-color: #007bff; */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        top: 50%;
+        left: 50%;
+        transform: rotate(var(--angle)) translate(250px) rotate(calc(-1 * var(--angle)));
+        transform-origin: center;
+        /* transition: transform 0.1s linear; */
+        transition:
+          width 0.3s,
+          height 0.3s;
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 30%;
+        /* object-fit: ; */
+      }
+      .card:hover {
+        width: 200px;
+        height: 150px;
+      }
+
+      .oven {
+        height: 200px;
+        width: 300px;
+        /* border: 1px solid #444; */
+        margin: 200px;
+      }
+      .oven img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .introduce {
+        margin: 0 5%;
+        width: 45%;
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(251, 245, 226);
+      }
+      .introduce .all-title {
+        height: 35%;
+        width: 100%;
+        /* border: 1px solid #444; */
+      }
+      .introduce .all-title img {
+        width: 100%;
+        height: 100%;
+      }
+      .introduce .description {
+        height: 65%;
+        width: 100%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        padding: 15px;
+        font-size: 30px;
+        color: #7c4900;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="carousel">
+        <div class="card" style="--angle: 0deg">
+          <img src="img/bread01.png" alt="" />
+        </div>
+
+        <div class="card" style="--angle: 60deg">
+          <img src="img/cake01.png" alt="" />
+        </div>
+        <div class="card" style="--angle: 120deg">
+          <img src="img/cookie02.png" alt="" />
+        </div>
+        <div class="card" style="--angle: 180deg">
+          <img src="img/chocolate01.png" alt="" />
+        </div>
+        <div class="card" style="--angle: 240deg">
+          <img src="img/coldsweet02.png" alt="" />
+        </div>
+        <div class="card" style="--angle: 300deg">
+          <img src="img/crisp02.png" alt="" />
+        </div>
+      </div>
+      <div class="oven">
+        <img src="img/oven01.png" alt="" />
+      </div>
+      <div class="introduce">
+        <div class="all-title">
+          <img src="img/title03.png" alt="" />
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi similique quae culpa
+          assumenda exercitationem non vitae tenetur tempore repudiandae enim recusandae neque ipsam
+          corrupti, iure, reprehenderit, ducimus eaque ex veritatis.
+        </div>
+      </div>
+      <!-- <div class="img/crisp02.pngintroduce">2</div> -->
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll('.card')
+      let isPaused = false
+
+      function rotateCards() {
+        if (!isPaused) {
+          cards.forEach(card => {
+            let currentAngle = parseFloat(card.style.getPropertyValue('--angle')) || 0
+            currentAngle += 0.5
+            card.style.setProperty('--angle', `${currentAngle}deg`)
+          })
+        }
+        requestAnimationFrame(rotateCards)
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+          isPaused = true
+        })
+
+        card.addEventListener('mouseout', () => {
+          isPaused = false
+        })
+      })
+
+      rotateCards()
+    </script>
+  </body>
+</html>
