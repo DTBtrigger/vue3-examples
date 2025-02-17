@@ -16,15 +16,15 @@ export default {
 </script>
 
 <template>
-  <!-- <SidebarView id="sidebar" />
-  <RouterView />
+  <SidebarView id="sidebar" />
+  <!-- <RouterView /> -->
   <Person />
-  <Car />
-  <CalculateName /> -->
+  <!-- <Car />
+  <CalculateName />
   <HomePage />
   <Crisp />
   <Cakes />
-  <Cookie />
+  <Cookie /> -->
 </template>
 <style>
 /* #app {
