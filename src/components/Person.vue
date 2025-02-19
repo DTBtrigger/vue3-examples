@@ -5,6 +5,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import type { PersonInter } from '@/types'
 import { reactive, toRefs, computed, ref, watch } from 'vue'
 let person = reactive({
   name: '张三',
@@ -15,6 +16,8 @@ let person = reactive({
     color: 'black'
   }
 })
+
+let person1: PersonInter = { id: '1111', name: 'hang', age: 12 }
 
 let { name, age, tel } = toRefs(person)
 
