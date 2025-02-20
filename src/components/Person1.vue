@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import type { PersonInter } from '@/types'
-
-let personlist: Array<PersonInter> = [
-  { id: 'sjcis01', name: '张三', age: 12 },
-  { id: 'sjcis02', name: '李四', age: 15 },
-  { id: 'sjcis03', name: '王无', age: 18 }
-]
+import person from '@/hooks/person'
+let { personlist, changeAge } = person()
 </script>
 <template>
-  <div></div>
+  <div class="person">
+    <ul>
+      <li v-for="person in personlist" :key="person.id">
+        {{ person.name }} {{ person.age }}
+
+        <button type="button" @click="changeAge(person)">修改年龄</button>
+      </li>
+    </ul>
+  </div>
 </template>

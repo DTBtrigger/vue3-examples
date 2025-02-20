@@ -9,10 +9,11 @@ import Cakes from './components/Cakes.vue'
 import Crisp from './components/Crisp.vue'
 import Cookie from './components/Cookie.vue'
 import Water from './components/Water.vue'
+import Person1 from './components/Person1.vue'
 
 export default {
   name: 'App',
-  components: { Person, Car, CalculateName, HomePage, Cakes, Crisp, Cookie, Water }
+  components: { Person, Car, CalculateName, HomePage, Cakes, Crisp, Cookie, Water, Person1 }
 }
 </script>
 
@@ -21,6 +22,8 @@ export default {
   <!-- <RouterView /> -->
   <Person />
   <Water />
+  <Person1 />
+
   <!-- <Car />
   <CalculateName />
   <HomePage />

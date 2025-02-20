@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue'
 
 let height = ref(100)
 let width = ref(200)
@@ -23,6 +23,18 @@ function changeNewHeigth() {
 function changeNewWidth() {
   newWith.value++
 }
+
+onBeforeMount(() => {
+  console.log('挂载前')
+})
+
+onMounted(() => {
+  console.log('挂载完成')
+})
+
+onBeforeUnmount(() => {
+  console.log('卸载前')
+})
 </script>
 <template>
   <div>{{ height }}</div>
@@ -36,5 +48,12 @@ function changeNewWidth() {
 div {
   background-color: azure;
   padding: 30px;
+}
+button {
+  border: 1px solid rgba(125, 10, 135, 0.551);
+  margin: 5px;
+  background-color: #d3e2;
+  height: 20px;
+  border-radius: 5px;
 }
 </style>

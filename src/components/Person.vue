@@ -1,13 +1,9 @@
-<script lang="ts">
-export default {
-  name: 'Person'
-}
-</script>
-
 <script lang="ts" setup>
-import type { PersonInter } from '@/types'
+import type { Person } from '@/types'
 import { reactive, toRefs, computed, ref, watch } from 'vue'
-let person = reactive({
+// import person from '@/hooks/person'
+let person: Person = reactive({
+  id: 'jsjsh01',
   name: '张三',
   age: 18,
   tel: '188888888888',
@@ -17,9 +13,7 @@ let person = reactive({
   }
 })
 
-let person1: PersonInter = { id: '1111', name: 'hang', age: 12 }
-
-let { name, age, tel } = toRefs(person)
+let { name, age } = toRefs(person)
 
 function changeName() {
   person.name = 'zhangsan'
