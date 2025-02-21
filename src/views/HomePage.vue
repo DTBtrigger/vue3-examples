@@ -41,6 +41,7 @@ import coldsweet02 from '../assets/img/coldsweet02.png'
 import crisp02 from '../assets/img/crisp02.png'
 import oven01 from '../assets/img/oven01.png'
 import title03 from '../assets/img/title03.png'
+import { useRouter } from 'vue-router'
 
 // 定义卡片数据的类型
 interface Card {
@@ -80,9 +81,14 @@ const resumeRotation = () => {
   isPaused.value = false
 }
 
+let router = useRouter()
 // 生命周期钩子
 onMounted(() => {
   rotateCards()
+
+  setTimeout(() => {
+    router.push('/news')
+  }, 5000)
 })
 
 onUnmounted(() => {

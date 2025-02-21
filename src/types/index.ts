@@ -6,6 +6,12 @@ export interface Person {
   car?: Car
 }
 
+export interface News {
+  id: string
+  title: string
+  content: string
+}
+
 export interface Car {
   name: string
   color: string
