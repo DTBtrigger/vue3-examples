@@ -8,6 +8,9 @@ let toy = ref('')
 let getToy = (value: string) => {
   toy.value = value
 }
+let changeCar = () => {
+  car.value = '宝马'
+}
 </script>
 <template>
   <div class="father">
@@ -15,6 +18,7 @@ let getToy = (value: string) => {
     <h4>汽车：{{ car }}</h4>
     <h4 v-show="toy">子的玩具：{{ toy }}</h4>
     <Child :car="car" :sendToy="getToy" />
+    <button type="button" @click="changeCar">父修改父的车</button>
   </div>
 </template>
 <style>

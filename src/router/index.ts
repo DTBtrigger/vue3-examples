@@ -17,6 +17,7 @@ import {
 } from 'vue-router'
 import FatherEvent from '@/views/communicatrion/02_custom-event/Father.vue'
 import FatherProps from '@/views/communicatrion/01_props/Father.vue'
+import TestHTTP from '@/views/TestHTTP.vue'
 
 // const routes: RouteRecordRaw[] = [
 //   {
@@ -92,6 +93,11 @@ const routes = [
         component: FatherEvent
       }
     ]
+  },
+  {
+    name: 'testHTTP',
+    path: '/testHTTP',
+    component: TestHTTP
   },
   {
     path: '/',

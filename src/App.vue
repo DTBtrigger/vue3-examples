@@ -38,6 +38,7 @@ export default {
     <RouterLink to="/cakes" active-class="active">蛋糕</RouterLink>
     <RouterLink :to="{ name: 'news' }" active-class="active">新闻</RouterLink>
     <RouterLink to="/communication" active-class="active">组件通信</RouterLink>
+    <RouterLink :to="{ name: 'testHTTP' }">测试http</RouterLink>
   </div>
   <div class="main-content">
     <RouterView></RouterView>
