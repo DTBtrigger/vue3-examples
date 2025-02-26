@@ -5,6 +5,9 @@ import Crisp from '@/views/Crisp.vue'
 import HomePage from '@/views/HomePage.vue'
 import News from '@/views/News.vue'
 import NewsDetail from '@/views/NewsDetail.vue'
+import Child from '@/views/communicatrion/01_props/Child.vue'
+import Father from '@/views/communicatrion/01_props/Father.vue'
+import Communication from '@/views/Communication.vue'
 import { couldStartTrivia } from 'typescript'
 import {
   createRouter,
@@ -12,6 +15,8 @@ import {
   createWebHistory,
   type RouteRecordRaw
 } from 'vue-router'
+import FatherEvent from '@/views/communicatrion/02_custom-event/Father.vue'
+import FatherProps from '@/views/communicatrion/01_props/Father.vue'
 
 // const routes: RouteRecordRaw[] = [
 //   {
@@ -70,6 +75,27 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    name: 'communication',
+    path: '/communication',
+    component: Communication,
+    children: [
+      {
+        name: 'props',
+        path: 'props',
+        component: FatherProps
+      },
+      {
+        name: 'custom-event',
+        path: 'custom-event',
+        component: FatherEvent
+      }
+    ]
+  },
+  {
+    path: '/',
+    redirect: '/homepage'
   }
 ]
 

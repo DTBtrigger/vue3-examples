@@ -11,10 +11,23 @@ import Cookie from './components/Cookie.vue'
 import Water from './components/Water.vue'
 import Person1 from './components/Person1.vue'
 import News from './views/News.vue'
+import Communication from './views/Communication.vue'
 
 export default {
   name: 'App',
-  components: { Person, Car, CalculateName, HomePage, Cakes, Crisp, Cookie, Water, Person1, News }
+  components: {
+    Person,
+    Car,
+    CalculateName,
+    HomePage,
+    Cakes,
+    Crisp,
+    Cookie,
+    Water,
+    Person1,
+    News,
+    Communication
+  }
 }
 </script>
 
@@ -24,10 +37,12 @@ export default {
     <RouterLink :to="{ name: 'crisp' }" active-class="active">酥</RouterLink>
     <RouterLink to="/cakes" active-class="active">蛋糕</RouterLink>
     <RouterLink :to="{ name: 'news' }" active-class="active">新闻</RouterLink>
+    <RouterLink to="/communication" active-class="active">组件通信</RouterLink>
   </div>
   <div class="main-content">
     <RouterView></RouterView>
   </div>
+  <!-- <div><Water /></div> -->
 </template>
 <style>
 /* #app {
